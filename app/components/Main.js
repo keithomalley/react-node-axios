@@ -1,3 +1,5 @@
+// This component/view wraps the app in a react-css-transitions group to allow
+// for subtle transitions between routes. It also imports the main css
 var React = require('react');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 require('../main.css');

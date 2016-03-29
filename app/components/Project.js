@@ -1,5 +1,9 @@
 var React = require('react');
-var PropTypes = React.PropTypes;
+
+/*
+    React components can be made as pure functions such as the Tag
+    component here.
+*/
 
 function Tag (props){
   return(
@@ -9,6 +13,10 @@ function Tag (props){
 
 function ProjectDetails(project_data){
   var data = project_data.project;
+
+  // mapping the data in the technology_used to Tag components, this would be
+  // easier in ES2015 using the newer map() function, however we can create an
+  // array of Tag components with a for loop this way
   var techs = [];
   for(i=0;i<data.technology_used.length;i++){
     techs.push(<Tag title={data.technology_used[i]} key={"tag" + i} />);
@@ -23,10 +31,6 @@ function ProjectDetails(project_data){
       </div>
     </div>
   );
-}
-
-ProjectDetails.propTypes = {
-
 }
 
 module.exports = ProjectDetails;

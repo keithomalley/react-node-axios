@@ -10,6 +10,7 @@ var ProjectFormContainer = React.createClass({
     router: React.PropTypes.object.isRequired
   },
   getInitialState: function(){
+    // An empty project as the
     return {
       project: {
         title: '',
@@ -22,6 +23,9 @@ var ProjectFormContainer = React.createClass({
     }
   },
   handleChange: function(event){
+    // A switch statement updates the state when the TextInputs are changed
+    // as the state acts immutible we create a copy of the projects object and
+    // change its values before assigning it to the next state of the component
     var temp_proj = this.state.project;
     switch(event.target.name){
       case 'title':
@@ -48,8 +52,9 @@ var ProjectFormContainer = React.createClass({
     this.setState({
       project: temp_proj
     });
-    console.log(this.state.project);
+    // console.log(this.state.project);
   },
+  // the handleSubmit function is called when the form is submitted, directing the router to the index page
   handleSubmit: function(e){
     e.preventDefault();
     Projects.add(this.state.project);
@@ -58,6 +63,11 @@ var ProjectFormContainer = React.createClass({
     })
   },
   render: function() {
+    // We render the ProjectForm component and pass it TextInput components along with their bindings and data
+    // whatever is inside the ProjectForm tags will render out wherever the {props.children} is output in the ProjectForm component
+
+    // A ProjectDetails component with its data bound to the project state dynamically
+    // updates its details when the form/text components are interacted with
     return(
       <div>
         <ProjectForm project={this.state.project} onSubmit={this.handleSubmit} >
@@ -69,7 +79,7 @@ var ProjectFormContainer = React.createClass({
           <TextInput label='Technology Used' binding='technology_used' value={this.state.project.technology_used} handleChange={this.handleChange} />
         </ProjectForm>
         <ProjectDetails project={this.state.project} />
-      </div>      
+      </div>
     )
   }
 });
