@@ -10,10 +10,10 @@ var ProjectFormContainer = require('../containers/ProjectFormContainer');
 
 var routes = (
   <Router history={hashHistory}>
-    <Route path='/' component={Main}>
+    <Route path="/" component={Main}>
       <IndexRoute component={ProjectsContainer} />
-      <Route path='projects' component={ProjectsContainer} />
-      <Route path='projects/new' component={ProjectFormContainer} />
+      <Route path="projects" component={ProjectsContainer} />
+      <Route path="projects/new" component={ProjectFormContainer} />
     </Route>
   </Router>
 );
