@@ -5,6 +5,9 @@ var Link = require('react-router').Link;
 
 // props are passed to these types of functions as params in the component when its created, eg:
 // <ProjectForm onSubmit={this.handleSubmit} /> will be available as props.onSubmit here
+
+// any other components passed to the form object are rendered out through this props.children tag
+
 function ProjectForm (props){
   return (
     <div>
@@ -14,7 +17,6 @@ function ProjectForm (props){
       </header>
       <div className='project'>
         <form onSubmit={props.onSubmit}>
-          // any other components passed to the form object are rendered out through this props.children tag
           {props.children}
           <input type='submit'/>
         </form>
